@@ -1,0 +1,48 @@
+# Archivos y carpetas generados por Visual Studio
+.vs/
+bin/
+obj/
+
+# Archivos de compilación
+*.dll
+*.pdb
+*.exe
+
+# Dependencias de NuGet
+/packages/
+
+# Comentarios de Visual Studio
+*.user
+*.suo
+*.cache
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.sdf
+*.opensdf
+*.suo
+*.sln.docstates
+
+# Respaldo de ReSharper
+_ReSharper*/
+
+# Respaldo de CodeRush
+.cr/
+
+# Carpeta del ensamblado de CodeAnalysis
+*/[Aa]nalyzers/
+
+# Carpeta de archivos temporales
+[Tt]emp/
+[Oo]bj/
+
+# Log de compilación
+*.log
+
+# Archivos de prueba
+TestResults/
+
+# Visual Studio Code
+.vscode/
