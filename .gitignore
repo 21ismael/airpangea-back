@@ -1,7 +1,7 @@
 # Archivos y carpetas generados por Visual Studio
-.vs/
-bin/
-obj/
+.vs
+bin
+obj
 
 # Archivos de compilación
 *.dll
