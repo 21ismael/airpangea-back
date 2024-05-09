@@ -13,7 +13,7 @@ namespace airpangea_back.Models
         public string? Seats { get; set; }
         public float? Price { get; set; }
         public string? Status { get; set; }
-        
+
         /*Estado del vuelo -  [Programado, En ruta, Retrasado, Cancelado, Finalizado]*/
         /*Flight Status -  [Scheduled, En route, Delayed, Cancelled, Completed]*/
 
@@ -35,12 +35,8 @@ namespace airpangea_back.Models
         [JsonIgnore]
         public List<Booking> Bookings { get; set; } = new List<Booking>();
 
-        private static string GetFlightCode(int id) {
-            return "AP" + id.ToString("D3");
-        }
-
         [NotMapped]
-        public string? FlightCode => GetFlightCode(Id);
+        public string FlightCode => $"AP{Id:D4}";
     }
 }
 

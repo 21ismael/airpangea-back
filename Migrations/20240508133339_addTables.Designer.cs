@@ -11,7 +11,7 @@ using airpangea_back.Data;
 namespace airpangea_back.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240430084429_addTables")]
+    [Migration("20240508133339_addTables")]
     partial class addTables
     {
         /// <inheritdoc />
@@ -100,9 +100,6 @@ namespace airpangea_back.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DepartureDateTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FlightCode")
                         .HasColumnType("TEXT");
 
                     b.Property<float?>("Price")

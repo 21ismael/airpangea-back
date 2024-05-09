@@ -99,9 +99,6 @@ namespace airpangea_back.Migrations
                     b.Property<DateTime>("DepartureDateTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("FlightCode")
-                        .HasColumnType("TEXT");
-
                     b.Property<float?>("Price")
                         .HasColumnType("REAL");
 

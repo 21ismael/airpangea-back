@@ -62,7 +62,6 @@ namespace airpangea_back.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    FlightCode = table.Column<string>(type: "TEXT", nullable: true),
                     Seats = table.Column<string>(type: "TEXT", nullable: true),
                     Price = table.Column<float>(type: "REAL", nullable: true),
                     Status = table.Column<string>(type: "TEXT", nullable: true),
