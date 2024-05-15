@@ -10,7 +10,9 @@ namespace airpangea_back.Models
     public class Booking
     {
         public int Id { get; set; }
-        public string? Tarifa { get; set; } //[Basic, Regular, Plus]
+        public string? Fare { get; set; } //[Basic, Regular, Plus]
+        public string? Seat { get; set; }
+
         public int PassengerId { get; set; }
         [ForeignKey("PassengerId")]
 
@@ -24,7 +26,7 @@ namespace airpangea_back.Models
 }
 
 /*
-INSERT INTO Bookings (Tarifa, PassengerId, FlightId)
+INSERT INTO Bookings (Fare, PassengerId, FlightId)
 VALUES
     ('Regular', 1, 1),
     ('Basic', 2, 1),

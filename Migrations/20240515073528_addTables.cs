@@ -12,19 +12,6 @@ namespace airpangea_back.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Aircrafts",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Model = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Aircrafts", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Airports",
                 columns: table => new
                 {
@@ -67,19 +54,12 @@ namespace airpangea_back.Migrations
                     Status = table.Column<string>(type: "TEXT", nullable: true),
                     DepartureDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     ArrivalDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    AircraftId = table.Column<int>(type: "INTEGER", nullable: false),
                     AirportDepartureId = table.Column<int>(type: "INTEGER", nullable: false),
                     AirportArrivalId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Flights", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Flights_Aircrafts_AircraftId",
-                        column: x => x.AircraftId,
-                        principalTable: "Aircrafts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Flights_Airports_AirportArrivalId",
                         column: x => x.AirportArrivalId,
@@ -103,7 +83,6 @@ namespace airpangea_back.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     LastName = table.Column<string>(type: "TEXT", nullable: true),
                     IdentityNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    Seat = table.Column<string>(type: "TEXT", nullable: true),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -123,7 +102,8 @@ namespace airpangea_back.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Tarifa = table.Column<string>(type: "TEXT", nullable: true),
+                    Fare = table.Column<string>(type: "TEXT", nullable: true),
+                    Seat = table.Column<string>(type: "TEXT", nullable: true),
                     PassengerId = table.Column<int>(type: "INTEGER", nullable: false),
                     FlightId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -155,11 +135,6 @@ namespace airpangea_back.Migrations
                 column: "PassengerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Flights_AircraftId",
-                table: "Flights",
-                column: "AircraftId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Flights_AirportArrivalId",
                 table: "Flights",
                 column: "AirportArrivalId");
@@ -186,9 +161,6 @@ namespace airpangea_back.Migrations
 
             migrationBuilder.DropTable(
                 name: "Passengers");
-
-            migrationBuilder.DropTable(
-                name: "Aircrafts");
 
             migrationBuilder.DropTable(
                 name: "Airports");

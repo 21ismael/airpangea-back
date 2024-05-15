@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using airpangea_back.Data;
 using airpangea_back.Models;
 using Microsoft.AspNetCore.Http;
@@ -14,6 +15,26 @@ namespace MyApp.Namespace
         public BookingController(DataContext context)
         {
             _context = context;
+        }
+
+        public static List<string> ValidateBooking(Booking booking)
+        {
+            var errors = new List<string>();
+
+            // Validar el campo "fare"
+            var allowedFares = new List<string> { "Basic", "Regular", "Plus" };
+            if (string.IsNullOrEmpty(booking.Fare) || !allowedFares.Contains(booking.Fare))
+            {
+                errors.Add("Fare must be one of the following values: Basic, Regular, Plus.");
+            }
+
+            // Validar el campo "seat"
+            if (string.IsNullOrEmpty(booking.Seat) || !Regex.IsMatch(booking.Seat, "^[A-Z]{2}[1-3]$"))
+            {
+                errors.Add("Seat must be in the format of two uppercase letters followed by a number between 1 and 3 (e.g., AB1, XY3).");
+            }
+
+            return errors;
         }
 
         [HttpGet(Name = "GetBookings")]
@@ -44,6 +65,12 @@ namespace MyApp.Namespace
         [HttpPost]
         public async Task<ActionResult<Booking>> Post(Booking booking)
         {
+            var validationErrors = ValidateBooking(booking);
+            if (validationErrors.Any())
+            {
+                return BadRequest(new { message = "Validation failed.", errors = validationErrors });
+            }
+
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
 
@@ -55,10 +82,27 @@ namespace MyApp.Namespace
         {
             if (id != booking.Id)
             {
-                return BadRequest("El ID proporcionado no coincide con un ID de reserva.");
+                return BadRequest("The provided ID does not match a booking ID.");
             }
 
-            _context.Entry(booking).State = EntityState.Modified;
+            var existingBooking = await _context.Bookings.FindAsync(id);
+            if (existingBooking == null)
+            {
+                return NotFound();
+            }
+
+            existingBooking.Fare = booking.Fare;
+            existingBooking.Seat = booking.Seat;
+            existingBooking.PassengerId = booking.PassengerId;
+            existingBooking.FlightId = booking.FlightId;
+
+            // Validar los campos
+            var validationErrors = ValidateBooking(existingBooking);
+            if (validationErrors.Any())
+            {
+                return BadRequest(new { message = "Validation failed.", errors = validationErrors });
+            }
+
             await _context.SaveChangesAsync();
 
             return Ok();

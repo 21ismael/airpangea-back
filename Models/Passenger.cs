@@ -13,7 +13,6 @@ namespace airpangea_back.Models
         public string? Name { get; set; }
         public string? LastName { get; set; }
         public string? IdentityNumber { get; set; }
-        public string? Seat { get; set; }
         public int UserId { get; set; }
         [ForeignKey("UserId")]
 

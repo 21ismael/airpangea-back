@@ -151,6 +151,6 @@ VALUES
     -- Suiza (1 aeropuerto)
     ('ZRH', 'Zürich Airport', 'Zürich', 'Switzerland'),
     -- Suecia (1 aeropuerto)
-    ('ARN', 'Stockholm Arlanda Airport', 'Stockholm', 'Sweden');y
+    ('ARN', 'Stockholm Arlanda Airport', 'Stockholm', 'Sweden');
     
 */

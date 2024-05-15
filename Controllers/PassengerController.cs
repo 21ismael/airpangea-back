@@ -16,6 +16,28 @@ namespace MyApp.Namespace
             _context = context;
         }
 
+        private static List<string> ValidatePassenger(Passenger passenger)
+        {
+            var errors = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(passenger.Name))
+            {
+                errors.Add("Name cannot be an empty string.");
+            }
+
+            if (string.IsNullOrWhiteSpace(passenger.LastName))
+            {
+                errors.Add("LastName cannot be an empty string.");
+            }
+
+            if (string.IsNullOrWhiteSpace(passenger.IdentityNumber))
+            {
+                errors.Add("IdentityNumber cannot be an empty string.");
+            }
+
+            return errors;
+        }
+
         [HttpGet(Name = "GetPassengers")]
         public async Task<ActionResult<IEnumerable<Passenger>>> GetPassengers()
         {
@@ -41,9 +63,23 @@ namespace MyApp.Namespace
             return passenger;
         }
 
-        [HttpPost]
+       [HttpPost]
         public async Task<ActionResult<Passenger>> Post(Passenger passenger)
         {
+            // Verificar si el usuario existe
+            var user = await _context.Users.FindAsync(passenger.UserId);
+            if (user == null)
+            {
+                return NotFound(new { message = $"User with ID {passenger.UserId} doesn't exist." });
+            }
+
+            // Validar los campos
+            var validationErrors = ValidatePassenger(passenger);
+            if (validationErrors.Any())
+            {
+                return BadRequest(new { message = "Validation failed.", errors = validationErrors });
+            }
+
             _context.Passengers.Add(passenger);
             await _context.SaveChangesAsync();
 
@@ -55,7 +91,20 @@ namespace MyApp.Namespace
         {
             if (id != passenger.Id)
             {
-                return BadRequest("El ID proporcionado no coincide con el ID del pasajero.");
+                return BadRequest(new { message = "The provided ID does not match the passenger ID." });
+            }
+
+            var existingPassenger = await _context.Passengers.FindAsync(id);
+            if (existingPassenger == null)
+            {
+                return NotFound();
+            }
+
+            // Validar los campos
+            var validationErrors = ValidatePassenger(passenger);
+            if (validationErrors.Any())
+            {
+                return BadRequest(new { message = "Validation failed.", errors = validationErrors });
             }
 
             _context.Entry(passenger).State = EntityState.Modified;

@@ -17,7 +17,6 @@ namespace airpangea_back.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Passenger> Passengers { get; set; }
-        public DbSet<Aircraft> Aircrafts { get; set; }
         public DbSet<Airport> Airports { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Booking> Bookings { get; set; }

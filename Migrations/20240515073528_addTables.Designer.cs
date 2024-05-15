@@ -11,7 +11,7 @@ using airpangea_back.Data;
 namespace airpangea_back.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240508133339_addTables")]
+    [Migration("20240515073528_addTables")]
     partial class addTables
     {
         /// <inheritdoc />
@@ -19,20 +19,6 @@ namespace airpangea_back.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
-
-            modelBuilder.Entity("airpangea_back.Models.Aircraft", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Aircrafts");
-                });
 
             modelBuilder.Entity("airpangea_back.Models.Airport", b =>
                 {
@@ -63,13 +49,16 @@ namespace airpangea_back.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Fare")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("FlightId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("PassengerId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Tarifa")
+                    b.Property<string>("Seat")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -85,9 +74,6 @@ namespace airpangea_back.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("AircraftId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("AirportArrivalId")
@@ -113,8 +99,6 @@ namespace airpangea_back.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AircraftId");
-
                     b.HasIndex("AirportArrivalId");
 
                     b.HasIndex("AirportDepartureId");
@@ -135,9 +119,6 @@ namespace airpangea_back.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Seat")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UserId")
@@ -194,12 +175,6 @@ namespace airpangea_back.Migrations
 
             modelBuilder.Entity("airpangea_back.Models.Flight", b =>
                 {
-                    b.HasOne("airpangea_back.Models.Aircraft", "Aircraft")
-                        .WithMany()
-                        .HasForeignKey("AircraftId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("airpangea_back.Models.Airport", "AirportArrival")
                         .WithMany()
                         .HasForeignKey("AirportArrivalId")
@@ -211,8 +186,6 @@ namespace airpangea_back.Migrations
                         .HasForeignKey("AirportDepartureId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Aircraft");
 
                     b.Navigation("AirportArrival");
 
