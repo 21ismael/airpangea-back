@@ -29,9 +29,9 @@ namespace MyApp.Namespace
             }
 
             // Validar el campo "seat"
-            if (string.IsNullOrEmpty(booking.Seat) || !Regex.IsMatch(booking.Seat, "^[A-Z]{2}[1-3]$"))
+            if (string.IsNullOrEmpty(booking.Seat) || !Regex.IsMatch(booking.Seat, "^[A-Z]{1}[1-3]$"))
             {
-                errors.Add("Seat must be in the format of two uppercase letters followed by a number between 1 and 3 (e.g., AB1, XY3).");
+                errors.Add("Seat must be in the format of one uppercase letter followed by a number between 1 and 3 (e.g., A1, B3).");
             }
 
             return errors;

@@ -21,9 +21,9 @@ namespace MyApp.Namespace
             var errors = new List<string>();
 
             // Validar el campo "seats"
-            if (string.IsNullOrEmpty(flight.Seats) || flight.Seats.Length != 30 || !flight.Seats.All(c => c == '0' || c == '1'))
+            if (string.IsNullOrEmpty(flight.Seats) || flight.Seats.Length != 40 || !flight.Seats.All(c => c == 'O' || c == 'X' || c == ' '))
             {
-                errors.Add("Seats must be a string of 30 characters containing only '0' and '1'.");
+                errors.Add("Seats must be a string of 40 characters containing only 'O', 'X' and ' '.");
             }
 
             // Validar el campo "price"
