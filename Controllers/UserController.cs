@@ -1,11 +1,13 @@
 using airpangea_back.Data;
 using airpangea_back.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace MyApp.Namespace
 {
+    [Authorize]
     [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
