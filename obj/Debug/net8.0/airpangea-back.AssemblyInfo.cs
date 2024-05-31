@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("airpangea-back")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e7a09e473684bd4f70d13a4884893eaeff3dabb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a9c02c9aab73ee20471543a1bd7ce4f010c220c")]
 [assembly: System.Reflection.AssemblyProductAttribute("airpangea-back")]
 [assembly: System.Reflection.AssemblyTitleAttribute("airpangea-back")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

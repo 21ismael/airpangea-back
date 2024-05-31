@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MyApp.Namespace
 {
-    [Authorize]
     [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase

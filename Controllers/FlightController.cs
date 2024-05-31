@@ -87,6 +87,18 @@ namespace MyApp.Namespace
             return flight;
         }
 
+        [HttpGet("scheduled", Name = "GetScheduledFlights")]
+        public async Task<ActionResult<IEnumerable<Flight>>> GetScheduledFlights()
+        {
+            var scheduledFlights = await _context.Flights
+                .Where(f => f.Status == "Scheduled")
+                .Include(f => f.AirportDeparture)
+                .Include(f => f.AirportArrival)
+                .ToListAsync();
+
+            return scheduledFlights;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Flight>> Post(Flight flight)
         {
