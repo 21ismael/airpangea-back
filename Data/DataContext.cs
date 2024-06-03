@@ -21,6 +21,11 @@ namespace airpangea_back.Data
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Booking> Bookings { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySQL("Server=127.0.0.1;port=3306;Database=database;User=root;Password=admin;");
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()

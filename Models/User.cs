@@ -17,8 +17,9 @@ namespace airpangea_back.Models
 }
 
 /*
-INSERT INTO Users (Email, Password, Name, LastName)
+INSERT INTO database.Users (Email, Password, Name, LastName)
 VALUES
+    ('ismaelauam@gmail.com', '12345', 'Ismael', 'Auam'),
     ('juanperez@example.com', 'clave123', 'Juan', 'Perez'),
     ('lauragonzalez@example.com', 'password456', 'Laura', 'González'),
     ('carlosrodriguez@example.com', 'abc123', 'Carlos', 'Rodríguez'),

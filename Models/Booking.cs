@@ -24,13 +24,3 @@ namespace airpangea_back.Models
         public Passenger? Passenger { get; set; }
     }
 }
-
-/*
-INSERT INTO Bookings (Fare, PassengerId, FlightId)
-VALUES
-    ('Regular', 1, 1),
-    ('Basic', 2, 1),
-    ('Plus', 3, 1),
-    ('Regular', 4, 1),
-    ('Basic', 5, 1);
-*/

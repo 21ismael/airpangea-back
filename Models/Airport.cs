@@ -16,7 +16,7 @@ namespace airpangea_back.Models
 }
 
 /*
-INSERT INTO airports (IATA, Name, City, Country)
+INSERT INTO database.airports (IATA, Name, City, Country)
 VALUES
     ('MAD', 'Adolfo Suárez Madrid–Barajas Airport', 'Madrid', 'Spain'),
     ('BCN', 'Barcelona–El Prat Airport', 'Barcelona', 'Spain'),

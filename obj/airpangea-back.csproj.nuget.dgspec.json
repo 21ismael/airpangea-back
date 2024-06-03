@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\iauam\\Desktop\\airpangea-back\\airpangea-back.csproj": {}
+    "C:\\Users\\ismae\\Desktop\\airpangea-back\\airpangea-back.csproj": {}
   },
   "projects": {
-    "C:\\Users\\iauam\\Desktop\\airpangea-back\\airpangea-back.csproj": {
+    "C:\\Users\\ismae\\Desktop\\airpangea-back\\airpangea-back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\iauam\\Desktop\\airpangea-back\\airpangea-back.csproj",
+        "projectUniqueName": "C:\\Users\\ismae\\Desktop\\airpangea-back\\airpangea-back.csproj",
         "projectName": "airpangea-back",
-        "projectPath": "C:\\Users\\iauam\\Desktop\\airpangea-back\\airpangea-back.csproj",
-        "packagesPath": "C:\\Users\\iauam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\iauam\\Desktop\\airpangea-back\\obj\\",
+        "projectPath": "C:\\Users\\ismae\\Desktop\\airpangea-back\\airpangea-back.csproj",
+        "packagesPath": "C:\\Users\\ismae\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ismae\\Desktop\\airpangea-back\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\iauam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ismae\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,23 +53,17 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.6, )"
             },
-            "Microsoft.EntityFrameworkCore.SQLite": {
+            "MySql.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.4, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -97,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

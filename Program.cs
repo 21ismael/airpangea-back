@@ -22,9 +22,7 @@ builder.Services.AddCors(options =>
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<DataContext>(
-    options => options.UseSqlite(connectionString)
-);
+builder.Services.AddDbContext<DataContext>();
 
 // Add authentication services
 builder.Services.AddAuthentication( x => {
