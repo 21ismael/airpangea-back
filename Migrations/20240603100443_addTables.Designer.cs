@@ -11,7 +11,7 @@ using airpangea_back.Data;
 namespace airpangea_back.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240531095850_addTables")]
+    [Migration("20240603100443_addTables")]
     partial class addTables
     {
         /// <inheritdoc />
